@@ -1,0 +1,63 @@
+@import "compass/reset";
+
+$page-transition-time: 1s;
+$page-transition-ease: cubic-bezier(.66,.15,.32,.88);
+
+
+.main-page{
+	
+	.project-slide {
+
+		// display: none; // To be set later with .is-active class
+		opacity:0;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		transition: all $page-transition-time $page-transition-ease;
+
+		img {
+
+			position: absolute;
+			width: 800px;
+			height: 600px;
+			left: 50%;
+			top: 50%; 
+			margin-left: -400px;
+			margin-top: -300px;
+		}
+
+		&.is-active{
+			display: block;
+		}
+
+
+	}
+
+	[data-role="prev-going-up"] {
+		transform: translateY(-500px) scale(0.8);
+		opacity:0;
+	}
+
+	[data-role="prev-going-down"] {
+		transform: translateY(500px) scale(0.8);
+		opacity:0;
+	}
+
+	[data-role="current-going-up"] {
+		transform: translateY(0) scale(1);
+		opacity:1;
+	}
+	
+	[data-role="current-going-down"] {
+		transform: translateY(0) scale(1);
+		opacity:1;
+		
+	}
+}
+
+button.project-nav{
+
+	position: relative;
+	float: left;
+	z-index: 10;
+}

@@ -1,0 +1,90 @@
+@import "compass/reset";
+
+$nav-point-size : 10; // {px}
+$nav-point-color : #f00; 
+$nav-point-border-color: rgba(255, 255, 255, 0.2); 
+$nav-thumb-size : 120; // {px}
+$nav-transition-time: 0.5s;
+
+@function to-px($number) {
+    @return unquote($number  + "px");
+}
+
+
+a{
+	text-decoration: none;
+	color: inherit;
+}
+
+.nav-main {
+
+	position: absolute;
+	top:100px;
+	right:300px;
+
+	.nav-thumb-container {
+
+		position: absolute;
+		overflow: hidden;
+		width: 10px;
+		height: 10px;
+
+		top:0;
+		left: 0;
+		border-radius: 50%;
+		transition: all $nav-transition-time;
+
+		&.is-hovering {
+
+			top: to-px(($nav-point-size - $nav-thumb-size)/2);
+			left:  to-px(($nav-point-size - $nav-thumb-size)/2);
+			width: to-px($nav-thumb-size);
+			height: to-px($nav-thumb-size);
+
+			img {
+
+				top: 0;
+				left:  0;
+			}
+		}
+
+		img {
+
+			position: absolute;
+			top: to-px(($nav-point-size - $nav-thumb-size)/2);
+			left:  to-px(($nav-point-size - $nav-thumb-size)/2);
+			transition: all $nav-transition-time;
+		}
+	}
+
+
+	li {
+
+		position: relative;
+		margin: 10px;
+	}
+
+	a {
+
+		display: block;
+		position: relative;
+		width: to-px($nav-point-size);
+		height: to-px($nav-point-size);
+		background-color: $nav-point-color;
+		border-radius: 50%;
+		z-index: 1;
+
+		&:before{
+
+			content: " ";
+			position: absolute;
+			z-index: -1;
+			top: -4px;
+			left: -4px;
+			width: to-px($nav-point-size);
+			height: to-px($nav-point-size);
+			border-radius: 50%;
+			border: 4px solid $nav-point-border-color;
+		}
+	}
+}
