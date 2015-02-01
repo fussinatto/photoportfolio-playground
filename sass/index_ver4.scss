@@ -1,7 +1,7 @@
 @import "compass/reset";
 
 $page-transition-time: 1s;
-$page-transition-ease: cubic-bezier(.75,0,.25,1);
+$page-transition-ease: cubic-bezier(.7,0,.3,1);
 
 html,body{
 	width: 100%;
@@ -12,14 +12,32 @@ body{
 	background-color: #ccc;
 }
 
+a{
+	text-decoration: none;
+	color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+	font-family: "Montserrat", sans-serif;
+}
+
+p {
+	font-family: "Neuton", serif;
+}
+
 .wrapper{
 	height: auto;
 	min-height: 100%;
 	overflow: hidden;
 	position: relative;
 	width: 100%;
-	// border: 10px solid #fff;
-	// box-sizing: border-box;
+	border: 10px solid #fff;
+	box-sizing: border-box;
 }
 
 .main-page{
@@ -47,12 +65,29 @@ body{
 		left: 0;
 		background: #fff;
 		overflow: hidden;
+		// transition: all $page-transition-time $page-transition-ease;
 		
+		
+		
+		&.is-active{
+			display: block;
+			z-index: 2;
+		}
+
+		&.on-stage{
+			display: block;
+
+			img {
+				transform: scale(1.1);
+			}
+		}
+
 
 		img {
 			width: 100%;
 			display: inline;
 			vertical-align: middle;
+			transition: transform 15s ease-out;
 
 		}
 
@@ -66,9 +101,6 @@ body{
 			left: 80px;
 		}
 		
-		&.is-active{
-			display: block;
-		}
 	}
 }
 
@@ -78,25 +110,28 @@ button.project-nav{
 }
 
 
-// 1st version
-.title-nav{
-	font-size: 42px;
-	line-height: 50px;
-	position: relative;
+// 2st version
+.title-nav {
+	position: absolute;
+	bottom: 50px;
+	left: 50px;
 	color: #fff;
-	height: 50px; 
-	overflow: hidden;
-
-	width: 50%;
-	margin: 0 auto;
-	margin-top: 20%;
+	letter-spacing: 2px;
+	font-family: "Montserrat", sans-serif;
+	// text-transform: capitalize;
 	
 
-	.title-anim-wrapper{
-		position: absolute;
-		width: 100%;
-		text-align: center;
-		transition: top $page-transition-time $page-transition-ease;
+	li {
+		font-size: 18px;
+		// cursor: pointer;
+		padding: 5px;
+		transition: font-size $page-transition-time $page-transition-ease;
+		font-family: "Montserrat", sans-serif;
+		// text-transform: uppercase;
+
+		&.is-active {
+			font-size: 32px;
+		}
 	}
 }
 

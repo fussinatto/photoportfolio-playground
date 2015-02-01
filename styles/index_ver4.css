@@ -63,27 +63,50 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 6, ../sass/index.scss */
+/* line 6, ../sass/index_ver4.scss */
 html, body {
   width: 100%;
   height: 100%;
 }
 
-/* line 11, ../sass/index.scss */
+/* line 11, ../sass/index_ver4.scss */
 body {
   background-color: #ccc;
 }
 
-/* line 15, ../sass/index.scss */
+/* line 15, ../sass/index_ver4.scss */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* line 20, ../sass/index_ver4.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* line 29, ../sass/index_ver4.scss */
+p {
+  font-family: "Neuton", serif;
+}
+
+/* line 33, ../sass/index_ver4.scss */
 .wrapper {
   height: auto;
   min-height: 100%;
   overflow: hidden;
   position: relative;
   width: 100%;
+  border: 10px solid #fff;
+  box-sizing: border-box;
 }
 
-/* line 25, ../sass/index.scss */
+/* line 43, ../sass/index_ver4.scss */
 .main-page {
   position: absolute;
   top: 0px;
@@ -92,7 +115,7 @@ body {
   left: 0px;
   background: transparent;
 }
-/* line 33, ../sass/index.scss */
+/* line 51, ../sass/index_ver4.scss */
 .main-page .slides {
   height: 100%;
   width: 100%;
@@ -100,7 +123,7 @@ body {
   -moz-perspective: 1000px;
   perspective: 1000px;
 }
-/* line 41, ../sass/index.scss */
+/* line 59, ../sass/index_ver4.scss */
 .main-page .project-slide {
   display: none;
   position: absolute;
@@ -111,13 +134,27 @@ body {
   background: #fff;
   overflow: hidden;
 }
-/* line 52, ../sass/index.scss */
+/* line 72, ../sass/index_ver4.scss */
+.main-page .project-slide.is-active {
+  display: block;
+  z-index: 2;
+}
+/* line 77, ../sass/index_ver4.scss */
+.main-page .project-slide.on-stage {
+  display: block;
+}
+/* line 80, ../sass/index_ver4.scss */
+.main-page .project-slide.on-stage img {
+  transform: scale(1.1);
+}
+/* line 86, ../sass/index_ver4.scss */
 .main-page .project-slide img {
   width: 100%;
   display: inline;
   vertical-align: middle;
+  transition: transform 15s ease-out;
 }
-/* line 60, ../sass/index.scss */
+/* line 95, ../sass/index_ver4.scss */
 .main-page .project-slide .project-title {
   position: absolute;
   font-size: 48px;
@@ -126,33 +163,30 @@ body {
   bottom: 15%;
   left: 80px;
 }
-/* line 69, ../sass/index.scss */
-.main-page .project-slide.is-active {
-  display: block;
-}
 
-/* line 75, ../sass/index.scss */
+/* line 107, ../sass/index_ver4.scss */
 button.project-nav {
   position: relative;
   z-index: 10;
 }
 
-/* line 82, ../sass/index.scss */
+/* line 114, ../sass/index_ver4.scss */
 .title-nav {
-  font-size: 42px;
-  line-height: 50px;
-  position: relative;
-  color: #fff;
-  height: 50px;
-  overflow: hidden;
-  width: 50%;
-  margin: 0 auto;
-  margin-top: 20%;
-}
-/* line 95, ../sass/index.scss */
-.title-nav .title-anim-wrapper {
   position: absolute;
-  width: 100%;
-  text-align: center;
-  transition: top 1s cubic-bezier(0.75, 0, 0.25, 1);
+  bottom: 50px;
+  left: 50px;
+  color: #fff;
+  letter-spacing: 2px;
+  font-family: "Montserrat", sans-serif;
+}
+/* line 124, ../sass/index_ver4.scss */
+.title-nav li {
+  font-size: 18px;
+  padding: 5px;
+  transition: font-size 1s cubic-bezier(0.7, 0, 0.3, 1);
+  font-family: "Montserrat", sans-serif;
+}
+/* line 132, ../sass/index_ver4.scss */
+.title-nav li.is-active {
+  font-size: 32px;
 }

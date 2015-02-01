@@ -16,7 +16,6 @@
 		ANIM_EASE		= [.75,.02,.33,.99];
 		ANIM_TIME		= 1000,
 		TITLE_HEIGHT	= $('.title-nav').height();
-		console.log(TITLE_HEIGHT);
 
 	// Variables
 	var currSlideIndex,

@@ -3,8 +3,6 @@
 
 	// Get DOM Objects
 	var slides			= $('.project-slide'),
-		titles 			= $('.title-nav li'),
-		titleWrapper	= $('.title-anim-wrapper'),
 		navButtons		= $('button.project-nav');
 
 	// Constants
@@ -14,16 +12,12 @@
 		PREV_GOING_UP	= 'prev-going-up',
 		PREV_GOING_DOWN	= 'prev-going-down',
 		ANIM_EASE		= [.75,.02,.33,.99];
-		ANIM_TIME		= 1000,
-		TITLE_HEIGHT	= $('.title-nav').height();
-		console.log(TITLE_HEIGHT);
+		ANIM_TIME		= 1000;
 
 	// Variables
 	var currSlideIndex,
 		currSlide,
 		prevSlide,
-		currTitle,
-		prevTitle,
 		scrollDirectionDown,
 		vh = $(window).height(),
 		pauseScroll = false;
@@ -47,11 +41,6 @@
 			prevSlide = currSlide;
 			currSlide = slides.eq(currSlideIndex);
 			_animateSlides(directionNext);
-
-
-			prevTitle = currTitle;
-			currTitle = titles.eq(currSlideIndex);
-			_animateTitles(directionNext)
 
 		}
 	}	
@@ -89,59 +78,9 @@
 			}, 
 			ANIM_TIME, 
 			ANIM_EASE, 
-			function (el) {
+			function () {
 				pauseScroll = false;
-
-				$('img',el[0]).velocity({
-					scale:1.11
-				}, 15*1000,  "ease-out")
 			});
-	}
-
-	function _animateTitles (directionNext) {
-		
-		// prevTitle.removeClass(IS_ACTIVE);
-		// currTitle.addClass(IS_ACTIVE);
-
-		titleWrapper.css('top', -currSlideIndex*TITLE_HEIGHT+'px')
-
-
-		/*
-		prevTitle.velocity(
-			{ 
-				// translateY: ( directionNext ? -vh : vh )*2,
-				translateZ: -vh,
-				opacity:0
-			},
-			ANIM_TIME*0.8,
-			ANIM_EASE, 
-			function () { 
-				$(this[0]).removeClass(IS_ACTIVE).css('transform', ''); 
-			});
-
-		// Current(incoming) slide function
-		currTitle
-			.velocity({ 
-				opacity:0,
-				translateZ: 0,//-vh,
-				translateY: ( directionNext ? vh : -vh ),
-				// translateZ: vh
-			}, 0 )
-			.addClass(IS_ACTIVE)
-			.velocity({ 
-				opacity:1,
-				translateY: 0,
-				translateZ: 0 
-			}, 
-			ANIM_TIME, 
-			ANIM_EASE, 
-			function (el) {
-				pauseScroll = false;
-
-				$('img',el[0]).velocity({
-					scale:1.11
-				}, 15*1000,  "ease-out")
-			});*/
 	}
 
 	function _handleScroll(e) {
@@ -182,8 +121,6 @@
 
 			currSlideIndex = 0;
 			currSlide = slides.eq(currSlideIndex).addClass(IS_ACTIVE);
-			// currTitle = titles.eq(currSlideIndex).addClass(IS_ACTIVE);
-
 		}
 
 		// Event Listeners

@@ -9,6 +9,7 @@
 
 	// Constants
 	var IS_ACTIVE		= 'is-active',
+		ON_STAGE		= 'on-stage',
 		CURR_GOING_UP	= 'current-going-up',
 		CURR_GOING_DOWN	= 'current-going-down',
 		PREV_GOING_UP	= 'prev-going-up',
@@ -16,7 +17,6 @@
 		ANIM_EASE		= [.75,.02,.33,.99];
 		ANIM_TIME		= 1000,
 		TITLE_HEIGHT	= $('.title-nav').height();
-		console.log(TITLE_HEIGHT);
 
 	// Variables
 	var currSlideIndex,
@@ -61,87 +61,45 @@
 	function _animateSlides(directionNext) {
 
 		// Previous slide function
-		prevSlide.velocity(
+		prevSlide
+			.velocity(
 			{ 
-				// translateY: ( directionNext ? -vh : vh )*2,
-				translateZ: -vh,
-				opacity:0
+				translateY: ( directionNext ? -vh : vh )*0.6,
 			},
-			ANIM_TIME*0.8,
+			ANIM_TIME,
 			ANIM_EASE, 
 			function () { 
-				$(this[0]).removeClass(IS_ACTIVE).css('transform', ''); 
+				prevSlide.removeClass(ON_STAGE).removeClass(IS_ACTIVE).css('transform', '');
 			});
+
 
 		// Current(incoming) slide function
 		currSlide
-			.velocity({ 
-				opacity:0,
-				translateZ: 0,//-vh,
+			.velocity(
+			{ 
 				translateY: ( directionNext ? vh : -vh ),
-				// translateZ: vh
 			}, 0 )
 			.addClass(IS_ACTIVE)
 			.velocity({ 
-				opacity:1,
 				translateY: 0,
-				translateZ: 0 
 			}, 
 			ANIM_TIME, 
 			ANIM_EASE, 
 			function (el) {
-				pauseScroll = false;
+				
+				pauseScroll = false;				
+				currSlide.addClass(ON_STAGE).removeClass(IS_ACTIVE);
 
-				$('img',el[0]).velocity({
-					scale:1.11
-				}, 15*1000,  "ease-out")
 			});
 	}
 
 	function _animateTitles (directionNext) {
 		
-		// prevTitle.removeClass(IS_ACTIVE);
-		// currTitle.addClass(IS_ACTIVE);
+		prevTitle.removeClass(IS_ACTIVE);
+		currTitle.addClass(IS_ACTIVE);
 
-		titleWrapper.css('top', -currSlideIndex*TITLE_HEIGHT+'px')
+		// titleWrapper.css('top', -currSlideIndex*TITLE_HEIGHT+'px')
 
-
-		/*
-		prevTitle.velocity(
-			{ 
-				// translateY: ( directionNext ? -vh : vh )*2,
-				translateZ: -vh,
-				opacity:0
-			},
-			ANIM_TIME*0.8,
-			ANIM_EASE, 
-			function () { 
-				$(this[0]).removeClass(IS_ACTIVE).css('transform', ''); 
-			});
-
-		// Current(incoming) slide function
-		currTitle
-			.velocity({ 
-				opacity:0,
-				translateZ: 0,//-vh,
-				translateY: ( directionNext ? vh : -vh ),
-				// translateZ: vh
-			}, 0 )
-			.addClass(IS_ACTIVE)
-			.velocity({ 
-				opacity:1,
-				translateY: 0,
-				translateZ: 0 
-			}, 
-			ANIM_TIME, 
-			ANIM_EASE, 
-			function (el) {
-				pauseScroll = false;
-
-				$('img',el[0]).velocity({
-					scale:1.11
-				}, 15*1000,  "ease-out")
-			});*/
 	}
 
 	function _handleScroll(e) {
@@ -182,7 +140,7 @@
 
 			currSlideIndex = 0;
 			currSlide = slides.eq(currSlideIndex).addClass(IS_ACTIVE);
-			// currTitle = titles.eq(currSlideIndex).addClass(IS_ACTIVE);
+			currTitle = titles.eq(currSlideIndex).addClass(IS_ACTIVE);
 
 		}
 

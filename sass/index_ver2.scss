@@ -1,7 +1,7 @@
 @import "compass/reset";
 
 $page-transition-time: 1s;
-$page-transition-ease: cubic-bezier(.75,0,.25,1);
+$page-transition-ease: cubic-bezier(.75,.02,.33,.99);
 
 html,body{
 	width: 100%;
@@ -18,8 +18,6 @@ body{
 	overflow: hidden;
 	position: relative;
 	width: 100%;
-	// border: 10px solid #fff;
-	// box-sizing: border-box;
 }
 
 .main-page{
@@ -48,12 +46,20 @@ body{
 		background: #fff;
 		overflow: hidden;
 		
+		&.is-active{
+			display: block;
+			z-index: 2;
+		}
+		
+		&.in-between{
+			display: block;
+			z-index: 1
+		}
 
 		img {
 			width: 100%;
 			display: inline;
 			vertical-align: middle;
-
 		}
 
 
@@ -66,9 +72,6 @@ body{
 			left: 80px;
 		}
 		
-		&.is-active{
-			display: block;
-		}
 	}
 }
 
@@ -78,25 +81,20 @@ button.project-nav{
 }
 
 
-// 1st version
+// 2st version
 .title-nav{
-	font-size: 42px;
-	line-height: 50px;
-	position: relative;
+	position: absolute;
+	bottom: 50px;
+	left: 50px;
 	color: #fff;
-	height: 50px; 
-	overflow: hidden;
 
-	width: 50%;
-	margin: 0 auto;
-	margin-top: 20%;
-	
+	li{
+		font-size: 24px;
+		transition: font-size $page-transition-time $page-transition-ease;
 
-	.title-anim-wrapper{
-		position: absolute;
-		width: 100%;
-		text-align: center;
-		transition: top $page-transition-time $page-transition-ease;
+		&.is-active {
+			font-size: 48px;
+		}
 	}
 }
 

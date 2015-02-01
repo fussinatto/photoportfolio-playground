@@ -1,7 +1,7 @@
 @import "compass/reset";
 
 $page-transition-time: 1s;
-$page-transition-ease: cubic-bezier(.75,0,.25,1);
+$page-transition-ease: cubic-bezier(.75,.02,.33,.99);
 
 html,body{
 	width: 100%;
@@ -18,8 +18,6 @@ body{
 	overflow: hidden;
 	position: relative;
 	width: 100%;
-	// border: 10px solid #fff;
-	// box-sizing: border-box;
 }
 
 .main-page{
@@ -86,10 +84,25 @@ button.project-nav{
 	color: #fff;
 	height: 50px; 
 	overflow: hidden;
+	letter-spacing: 4px;
+	font-family: "Montserrat", sans-serif;
 
 	width: 50%;
 	margin: 0 auto;
 	margin-top: 20%;
+
+	// li {
+	// 	font-size: 18px;
+	// 	// cursor: pointer;
+	// 	padding: 5px;
+	// 	transition: font-size $page-transition-time $page-transition-ease;
+	// 	font-family: "Montserrat", sans-serif;
+	// 	// text-transform: uppercase;
+
+	// 	&.is-active {
+	// 		font-size: 32px;
+	// 	}
+	// }
 	
 
 	.title-anim-wrapper{
@@ -99,4 +112,6 @@ button.project-nav{
 		transition: top $page-transition-time $page-transition-ease;
 	}
 }
+
+
 

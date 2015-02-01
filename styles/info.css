@@ -63,28 +63,30 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 6, ../sass/index.scss */
+/* line 6, ../sass/info.scss */
 html, body {
   width: 100%;
   height: 100%;
 }
 
-/* line 11, ../sass/index.scss */
+/* line 11, ../sass/info.scss */
 body {
   background-color: #ccc;
 }
 
-/* line 15, ../sass/index.scss */
+/* line 15, ../sass/info.scss */
 .wrapper {
   height: auto;
   min-height: 100%;
   overflow: hidden;
   position: relative;
   width: 100%;
+  border: 10px solid #fff;
+  box-sizing: border-box;
 }
 
-/* line 25, ../sass/index.scss */
-.main-page {
+/* line 25, ../sass/info.scss */
+.slide-container {
   position: absolute;
   top: 0px;
   right: 0px;
@@ -92,67 +94,58 @@ body {
   left: 0px;
   background: transparent;
 }
-/* line 33, ../sass/index.scss */
-.main-page .slides {
-  height: 100%;
-  width: 100%;
-  -webkit-perspective: 1000px;
-  -moz-perspective: 1000px;
-  perspective: 1000px;
-}
-/* line 41, ../sass/index.scss */
-.main-page .project-slide {
-  display: none;
+/* line 33, ../sass/info.scss */
+.slide-container .img-container {
   position: absolute;
-  width: 100%;
-  height: 100%;
   top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
-  background: #fff;
   overflow: hidden;
+  transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+  transition-duration: 0.5s;
+  transition-property: transform, opacity;
 }
-/* line 52, ../sass/index.scss */
-.main-page .project-slide img {
+/* line 47, ../sass/info.scss */
+.slide-container .img-container img {
   width: 100%;
   display: inline;
   vertical-align: middle;
+  margin-top: 0;
+  margin-left: 0;
+  transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+  transition-duration: 0.5s;
+  transition-property: all;
 }
-/* line 60, ../sass/index.scss */
-.main-page .project-slide .project-title {
-  position: absolute;
-  font-size: 48px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  bottom: 15%;
-  left: 80px;
+/* line 62, ../sass/info.scss */
+.slide-container .text {
+  position: relative;
+  width: 20%;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 50px;
+  text-align: center;
+  color: white;
+  background-color: red;
+  transform: scale(0.8);
+  opacity: 0;
+  transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+  transition-duration: 0.5s;
+  transition-property: transform, opacity;
 }
-/* line 69, ../sass/index.scss */
-.main-page .project-slide.is-active {
-  display: block;
+/* line 85, ../sass/info.scss */
+.slide-container .single-slide.info-mode .img-container {
+  transform: scale(1.2);
+  opacity: 0;
+}
+/* line 90, ../sass/info.scss */
+.slide-container .single-slide.info-mode .text {
+  transform: scale(1);
+  opacity: 1;
 }
 
-/* line 75, ../sass/index.scss */
-button.project-nav {
+/* line 100, ../sass/info.scss */
+button.info {
   position: relative;
   z-index: 10;
-}
-
-/* line 82, ../sass/index.scss */
-.title-nav {
-  font-size: 42px;
-  line-height: 50px;
-  position: relative;
-  color: #fff;
-  height: 50px;
-  overflow: hidden;
-  width: 50%;
-  margin: 0 auto;
-  margin-top: 20%;
-}
-/* line 95, ../sass/index.scss */
-.title-nav .title-anim-wrapper {
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  transition: top 1s cubic-bezier(0.75, 0, 0.25, 1);
 }

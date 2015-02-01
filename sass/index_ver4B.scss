@@ -1,0 +1,345 @@
+@import "compass/reset";
+
+$page-transition-time: 1s;
+$page-transition-ease: cubic-bezier(.7,0,.3,1);
+$menu-transition-time: 0.25s;
+
+html,body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background-color: #ccc;
+	color: #fff;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+	font-family: "Montserrat", sans-serif;
+}
+
+p {
+	font-family: "Neuton", serif;
+}
+
+.wrapper {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	border: 5px solid #fff;
+	box-sizing: border-box;
+}
+
+header {
+	position: relative;
+	padding: 0 5%;
+	z-index: 10;
+
+	.logo {
+		display: inline-block;
+		width: 140px;
+		height: 80px;
+		overflow: hidden;
+		background-color: #fff;
+		line-height:80px; // Has to be same as height
+		text-align:center;
+
+		img {
+			 vertical-align: middle;
+		}
+	}
+}
+
+.main-nav-toggle{
+	position: relative;
+	float: right;
+	padding: 5px;
+	margin: 15px;
+	background-color: transparent;
+	border: 1px solid transparent;
+	cursor: pointer;
+
+	&:active, 
+ 	&:focus {
+	    outline:0;
+	}
+
+
+	.btn-bar{
+		display: block;
+		width: 20px;
+		height: 2px;
+		margin: 5px 0;
+		border-radius: 1px;
+		background-color: #fff;
+	}
+}
+
+.main-nav{
+	opacity:0;
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	transition: opacity $menu-transition-time  ease-in-out;
+
+	.is-menu-active &{ // to be set on  body
+		opacity:1;
+	}
+    
+
+	&:before {
+		content: ' ';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0,0,0,0.95);
+		// background-color: rgba(255,255,255,0.95);
+	}
+
+    ul{
+    	position: fixed;
+    	top: 50%;
+   		left: 50%;
+    	color: #333;
+    	-webkit-transform: translate(-50%, -50%);
+    	transform: translate(-50%, -50%);
+    }
+
+	li{
+		padding: 10px;
+		font-size:34px;
+		font-family: "Montserrat", sans-serif;
+		color: #fff;
+		opacity: 0.5;
+		transition: opacity $menu-transition-time;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	
+
+	
+
+
+}
+
+.main-page {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	background: transparent;
+	-webkit-perspective: 1000px;
+	-moz-perspective: 1000px;
+	perspective: 1000px;
+
+	
+	.project-slide {
+		visibility: hidden;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background: #fff;
+		overflow: hidden;
+		
+		&.is-active {
+		    visibility: visible;
+		    z-index: 2;
+		}
+
+		&.on-stage {
+			visibility: visible;
+
+			img {
+				transform: scale(1.1);
+			}
+		}
+
+		img {
+
+			top: 0; 
+			left: 0; 
+			transition: transform 15s ease-out;
+
+			&[data-scaleaxis="bgwidth"]{
+				 width: 100%;
+			}
+
+			&[data-scaleaxis="bgheight"]{
+				 height: 100%;
+			}
+
+		}
+
+		// &[data-scaleaxis="bgwidth"] img{
+		// 	 width: 100%;
+		// }
+
+		// &[data-scaleaxis="bgheight"] img{
+		// 	 height: 100%;
+		// }
+
+
+		.project-title{
+			position: absolute;
+			font-size: 48px;
+			font-weight: bold;
+			letter-spacing: 2px;
+			bottom: 15%;
+			left: 80px;
+		}
+		
+	}
+}
+
+button.project-nav{
+	position: relative;
+	z-index: 10;
+}
+
+
+// TITLE
+.title-section{
+	
+	position: absolute;
+	width: 50%;
+	height: 125px; 
+	// overflow: hidden;
+
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+
+
+	.title-anim-wrapper{
+		position: absolute;
+		top: 0;
+		text-align: center;
+		transition: top $page-transition-time $page-transition-ease;
+
+		li {
+			font-size: 42px;
+			font-family: "Montserrat", sans-serif;
+			line-height: 50px;
+			letter-spacing: 4px;
+			
+			color: #fff;
+			padding: 25px 0;
+			opacity: 0;
+			transition: opacity $page-transition-time*0.5 $page-transition-ease $page-transition-time*0.25;
+
+			&.is-active{
+				opacity: 1;
+			}
+		}
+	}
+}
+
+
+//SIDEBAR NAV
+
+
+//SIDEBAR-NAV
+
+$nav-point-size : 10; // {px}
+$nav-point-color : #f00; 
+$nav-point-border-color: rgba(255, 255, 255, 0.2); 
+$nav-thumb-size : 120; // {px}
+$nav-transition-time: 0.5s;
+
+@function to-px($number) {
+    @return unquote($number  + "px");
+}
+
+
+.sidebar-nav {
+	// position: absolute;
+	float:right;
+	// top:100px;
+	margin-right:70px;
+
+
+	.nav-thumb-container {
+		position: absolute;
+		overflow: hidden;
+		width: 10px;
+		height: 10px;
+// http://stackoverflow.com/questions/21154117/how-to-fix-overflow-hidden-not-working-with-border-radius-and-css-animation
+		top:0;
+		left: 0;
+		border-radius: 50%;
+		transition: all $nav-transition-time;
+
+		&.is-hovering {
+			top: to-px(($nav-point-size - $nav-thumb-size)/2);
+			left:  to-px(($nav-point-size - $nav-thumb-size)/2);
+			width: to-px($nav-thumb-size);
+			height: to-px($nav-thumb-size);
+
+			img {
+				top: 0;
+				left:  0;
+			}
+		}
+
+		img {
+			position: absolute;
+			top: to-px(($nav-point-size - $nav-thumb-size)/2);
+			left:  to-px(($nav-point-size - $nav-thumb-size)/2);
+			transition: all $nav-transition-time;
+		}
+	}
+
+
+	li {
+		position: relative;
+		margin: 20px 0;
+	}
+
+	a {
+		display: block;
+		position: relative;
+		width: to-px($nav-point-size);
+		height: to-px($nav-point-size);
+		background-color: $nav-point-color;
+		border-radius: 50%;
+		z-index: 1;
+
+		&:before{
+			// content: " ";
+			// position: absolute;
+			// z-index: -1;
+			// top: -4px;
+			// left: -4px;
+			// width: to-px($nav-point-size);
+			// height: to-px($nav-point-size);
+			// border-radius: 50%;
+			// border: 4px solid $nav-point-border-color;
+		}
+	}
+}
+
+// MAIN SITE NAV
+.main-nav{
+
+}

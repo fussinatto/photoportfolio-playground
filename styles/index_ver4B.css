@@ -1,0 +1,348 @@
+/* line 5, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 7, ../sass/index_ver4B.scss */
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 12, ../sass/index_ver4B.scss */
+body {
+  background-color: #ccc;
+  color: #fff;
+}
+
+/* line 17, ../sass/index_ver4B.scss */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* line 22, ../sass/index_ver4B.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* line 31, ../sass/index_ver4B.scss */
+p {
+  font-family: "Neuton", serif;
+}
+
+/* line 35, ../sass/index_ver4B.scss */
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border: 5px solid #fff;
+  box-sizing: border-box;
+}
+
+/* line 44, ../sass/index_ver4B.scss */
+header {
+  position: relative;
+  padding: 0 5%;
+  z-index: 10;
+}
+/* line 49, ../sass/index_ver4B.scss */
+header .logo {
+  display: inline-block;
+  width: 140px;
+  height: 80px;
+  overflow: hidden;
+  background-color: #fff;
+  line-height: 80px;
+  text-align: center;
+}
+/* line 58, ../sass/index_ver4B.scss */
+header .logo img {
+  vertical-align: middle;
+}
+
+/* line 64, ../sass/index_ver4B.scss */
+.main-nav-toggle {
+  position: relative;
+  float: right;
+  padding: 5px;
+  margin: 15px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+/* line 73, ../sass/index_ver4B.scss */
+.main-nav-toggle:active, .main-nav-toggle:focus {
+  outline: 0;
+}
+/* line 79, ../sass/index_ver4B.scss */
+.main-nav-toggle .btn-bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 5px 0;
+  border-radius: 1px;
+  background-color: #fff;
+}
+
+/* line 89, ../sass/index_ver4B.scss */
+.main-nav {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: opacity 0.25s ease-in-out;
+}
+/* line 99, ../sass/index_ver4B.scss */
+.is-menu-active .main-nav {
+  opacity: 1;
+}
+/* line 104, ../sass/index_ver4B.scss */
+.main-nav:before {
+  content: ' ';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+}
+/* line 113, ../sass/index_ver4B.scss */
+.main-nav ul {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  color: #333;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+/* line 122, ../sass/index_ver4B.scss */
+.main-nav li {
+  padding: 10px;
+  font-size: 34px;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  opacity: 0.5;
+  transition: opacity 0.25s;
+}
+/* line 130, ../sass/index_ver4B.scss */
+.main-nav li:hover {
+  opacity: 1;
+}
+
+/* line 142, ../sass/index_ver4B.scss */
+.main-page {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background: transparent;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  perspective: 1000px;
+}
+/* line 154, ../sass/index_ver4B.scss */
+.main-page .project-slide {
+  visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #fff;
+  overflow: hidden;
+}
+/* line 164, ../sass/index_ver4B.scss */
+.main-page .project-slide.is-active {
+  visibility: visible;
+  z-index: 2;
+}
+/* line 169, ../sass/index_ver4B.scss */
+.main-page .project-slide.on-stage {
+  visibility: visible;
+}
+/* line 172, ../sass/index_ver4B.scss */
+.main-page .project-slide.on-stage img {
+  transform: scale(1.1);
+}
+/* line 177, ../sass/index_ver4B.scss */
+.main-page .project-slide img {
+  top: 0;
+  left: 0;
+  transition: transform 15s ease-out;
+}
+/* line 183, ../sass/index_ver4B.scss */
+.main-page .project-slide img[data-scaleaxis="bgwidth"] {
+  width: 100%;
+}
+/* line 187, ../sass/index_ver4B.scss */
+.main-page .project-slide img[data-scaleaxis="bgheight"] {
+  height: 100%;
+}
+/* line 202, ../sass/index_ver4B.scss */
+.main-page .project-slide .project-title {
+  position: absolute;
+  font-size: 48px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  bottom: 15%;
+  left: 80px;
+}
+
+/* line 214, ../sass/index_ver4B.scss */
+button.project-nav {
+  position: relative;
+  z-index: 10;
+}
+
+/* line 221, ../sass/index_ver4B.scss */
+.title-section {
+  position: absolute;
+  width: 50%;
+  height: 125px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+/* line 234, ../sass/index_ver4B.scss */
+.title-section .title-anim-wrapper {
+  position: absolute;
+  top: 0;
+  text-align: center;
+  transition: top 1s cubic-bezier(0.7, 0, 0.3, 1);
+}
+/* line 240, ../sass/index_ver4B.scss */
+.title-section .title-anim-wrapper li {
+  font-size: 42px;
+  font-family: "Montserrat", sans-serif;
+  line-height: 50px;
+  letter-spacing: 4px;
+  color: #fff;
+  padding: 25px 0;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.7, 0, 0.3, 1) 0.25s;
+}
+/* line 251, ../sass/index_ver4B.scss */
+.title-section .title-anim-wrapper li.is-active {
+  opacity: 1;
+}
+
+/* line 275, ../sass/index_ver4B.scss */
+.sidebar-nav {
+  float: right;
+  margin-right: 70px;
+}
+/* line 282, ../sass/index_ver4B.scss */
+.sidebar-nav .nav-thumb-container {
+  position: absolute;
+  overflow: hidden;
+  width: 10px;
+  height: 10px;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  transition: all 0.5s;
+}
+/* line 293, ../sass/index_ver4B.scss */
+.sidebar-nav .nav-thumb-container.is-hovering {
+  top: -55px;
+  left: -55px;
+  width: 120px;
+  height: 120px;
+}
+/* line 299, ../sass/index_ver4B.scss */
+.sidebar-nav .nav-thumb-container.is-hovering img {
+  top: 0;
+  left: 0;
+}
+/* line 305, ../sass/index_ver4B.scss */
+.sidebar-nav .nav-thumb-container img {
+  position: absolute;
+  top: -55px;
+  left: -55px;
+  transition: all 0.5s;
+}
+/* line 314, ../sass/index_ver4B.scss */
+.sidebar-nav li {
+  position: relative;
+  margin: 20px 0;
+}
+/* line 319, ../sass/index_ver4B.scss */
+.sidebar-nav a {
+  display: block;
+  position: relative;
+  width: 10px;
+  height: 10px;
+  background-color: #f00;
+  border-radius: 50%;
+  z-index: 1;
+}

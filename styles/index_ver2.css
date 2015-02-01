@@ -63,18 +63,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 6, ../sass/index.scss */
+/* line 6, ../sass/index_ver2.scss */
 html, body {
   width: 100%;
   height: 100%;
 }
 
-/* line 11, ../sass/index.scss */
+/* line 11, ../sass/index_ver2.scss */
 body {
   background-color: #ccc;
 }
 
-/* line 15, ../sass/index.scss */
+/* line 15, ../sass/index_ver2.scss */
 .wrapper {
   height: auto;
   min-height: 100%;
@@ -83,7 +83,7 @@ body {
   width: 100%;
 }
 
-/* line 25, ../sass/index.scss */
+/* line 23, ../sass/index_ver2.scss */
 .main-page {
   position: absolute;
   top: 0px;
@@ -92,7 +92,7 @@ body {
   left: 0px;
   background: transparent;
 }
-/* line 33, ../sass/index.scss */
+/* line 31, ../sass/index_ver2.scss */
 .main-page .slides {
   height: 100%;
   width: 100%;
@@ -100,7 +100,7 @@ body {
   -moz-perspective: 1000px;
   perspective: 1000px;
 }
-/* line 41, ../sass/index.scss */
+/* line 39, ../sass/index_ver2.scss */
 .main-page .project-slide {
   display: none;
   position: absolute;
@@ -111,13 +111,23 @@ body {
   background: #fff;
   overflow: hidden;
 }
-/* line 52, ../sass/index.scss */
+/* line 49, ../sass/index_ver2.scss */
+.main-page .project-slide.is-active {
+  display: block;
+  z-index: 2;
+}
+/* line 54, ../sass/index_ver2.scss */
+.main-page .project-slide.in-between {
+  display: block;
+  z-index: 1;
+}
+/* line 59, ../sass/index_ver2.scss */
 .main-page .project-slide img {
   width: 100%;
   display: inline;
   vertical-align: middle;
 }
-/* line 60, ../sass/index.scss */
+/* line 66, ../sass/index_ver2.scss */
 .main-page .project-slide .project-title {
   position: absolute;
   font-size: 48px;
@@ -126,33 +136,26 @@ body {
   bottom: 15%;
   left: 80px;
 }
-/* line 69, ../sass/index.scss */
-.main-page .project-slide.is-active {
-  display: block;
-}
 
-/* line 75, ../sass/index.scss */
+/* line 78, ../sass/index_ver2.scss */
 button.project-nav {
   position: relative;
   z-index: 10;
 }
 
-/* line 82, ../sass/index.scss */
+/* line 85, ../sass/index_ver2.scss */
 .title-nav {
-  font-size: 42px;
-  line-height: 50px;
-  position: relative;
-  color: #fff;
-  height: 50px;
-  overflow: hidden;
-  width: 50%;
-  margin: 0 auto;
-  margin-top: 20%;
-}
-/* line 95, ../sass/index.scss */
-.title-nav .title-anim-wrapper {
   position: absolute;
-  width: 100%;
-  text-align: center;
-  transition: top 1s cubic-bezier(0.75, 0, 0.25, 1);
+  bottom: 50px;
+  left: 50px;
+  color: #fff;
+}
+/* line 91, ../sass/index_ver2.scss */
+.title-nav li {
+  font-size: 24px;
+  transition: font-size 1s cubic-bezier(0.75, 0.02, 0.33, 0.99);
+}
+/* line 95, ../sass/index_ver2.scss */
+.title-nav li.is-active {
+  font-size: 48px;
 }
