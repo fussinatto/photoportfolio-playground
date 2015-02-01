@@ -14,7 +14,13 @@
 	var IS_ACTIVE = 'is-active',
 		ON_STAGE = 'on-stage',
 		ANIM_EASE = [0.75, 0, 0.25, 1],
-		ANIM_TIME = 1000;
+		ANIM_TIME = 1000,
+		KEYS = {
+			'up': 38,
+			'down':40,
+			'left':37,
+			'right':39
+		};
 
 	// Variables
 	var currSlideIndex,
@@ -29,6 +35,8 @@
 
 	// Functions
 	function _changeSlides(directionNext) {
+
+		pauseScroll = true;
 
 		if (slides.length && slides.length > 1) {
 
@@ -82,6 +90,8 @@
 	}
 
 	function changeSlideByIndex(index, directionNext) {
+
+		pauseScroll = true;
 		currSlideIndex = index;
 
 		// CALL SLIDES CHANGE 
@@ -145,7 +155,7 @@
 
 	}
 
-	function handleSidebarClick(e) {
+	function _handleSidebarClick(e) {
 
 		e.preventDefault();
 		var cLink = e.target;
@@ -155,7 +165,6 @@
 			if (obj === cLink && !$(cLink).hasClass(IS_ACTIVE) && !pauseScroll) {
 
 				changeSlideByIndex(i, currSlideIndex < i);
-				pauseScroll = true;
 			}
 		});
 	}
@@ -166,7 +175,6 @@
 		if (!pauseScroll) {
 
 			//Animate slides - play next (directionNext = true) if scrolling is downwards
-			pauseScroll = true;
 			_changeSlides(e.originalEvent.wheelDelta < 0);
 		}
 	}
@@ -187,7 +195,6 @@
 
 		if (!pauseScroll) {
 			_changeSlides(scrollDirectionDown);
-			pauseScroll = true;
 		}
 
 	}
@@ -232,7 +239,7 @@
 		}
 
 
-		sidenavLinks.click(handleSidebarClick);
+		sidenavLinks.click(_handleSidebarClick);
 
 		// Event Listeners
 		//TODO: debounce it
@@ -253,16 +260,27 @@
 	_init();
 
 
-})(jQuery);
+// })(jQuery);
 
 
 
-// MAIN NAV
-(function() {
+// // MAIN NAV
+// (function() {
 
 	function handleKeyPress(e) {
 
 		var key = e.keyCode;
+		if(!pauseScroll){
+
+			switch (key){
+				case KEYS.up:
+					_changeSlides(false);
+					break;
+				case KEYS.down:
+					_changeSlides(true);
+					break;
+			}
+		}
 	}
 
 	// MAIN NAV
@@ -275,7 +293,8 @@
 	$('.main-nav-toggle').bind('click', toggleMainNav);
 
 	$(window).bind('keyup', handleKeyPress);
-})();
+
+})(jQuery);
 
 
 
