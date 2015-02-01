@@ -7,6 +7,7 @@
 	// Get DOM Objects
 	var slides = $('.project-slide'),
 		titles = $('.title-section li'),
+		sidenavLinks = $('.sidebar-nav a'),
 		titleWrapper = $('.title-anim-wrapper');
 
 	// Constants
@@ -21,6 +22,7 @@
 		prevSlide,
 		currTitle,
 		prevTitle,
+		currLink,
 		scrollDirectionDown,
 		vh = $(window).height(),
 		pauseScroll = false;
@@ -29,7 +31,6 @@
 	function _changeSlides(directionNext) {
 
 		if (slides.length && slides.length > 1) {
-
 
 			if (directionNext) {
 
@@ -61,17 +62,42 @@
 				// (currSlideIndex > 0) ?  : currSlideIndex = slides.length - 1;
 			}
 
+			changeSlideByIndex(currSlideIndex, directionNext);
+			// CALL SLIDES CHANGE 
+			// prevSlide = currSlide;
+			// currSlide = slides.eq(currSlideIndex);
+			// _animateSlides(directionNext);
 
-			prevSlide = currSlide;
-			currSlide = slides.eq(currSlideIndex);
-			_animateSlides(directionNext);
+			// // CALL TITLE CHANGE
+			// prevTitle = currTitle;
+			// currTitle = titles.eq(currSlideIndex);
+			// _animateTitles();
 
-
-			prevTitle = currTitle;
-			currTitle = titles.eq(currSlideIndex);
-			_animateTitles();
+			// // CALL LINK CHANGE
+			// sidenavLinks.eq(currLink).removeClass(IS_ACTIVE);
+			// currLink = currSlideIndex;
+			// sidenavLinks.eq(currLink).addClass(IS_ACTIVE);
 
 		}
+	}
+
+	function changeSlideByIndex(index, directionNext) {
+		currSlideIndex = index;
+
+		// CALL SLIDES CHANGE 
+		prevSlide = currSlide;
+		currSlide = slides.eq(currSlideIndex);
+		_animateSlides(directionNext);
+
+		// CALL TITLE CHANGE
+		prevTitle = currTitle;
+		currTitle = titles.eq(currSlideIndex);
+		_animateTitles();
+
+		// CALL LINK CHANGE
+		sidenavLinks.eq(currLink).removeClass(IS_ACTIVE);
+		currLink = currSlideIndex;
+		sidenavLinks.eq(currLink).addClass(IS_ACTIVE);
 	}
 
 	// $element.velocity(propertyMap [, duration] [, easing] [, complete])
@@ -114,10 +140,26 @@
 
 		prevTitle.removeClass(IS_ACTIVE);
 		var titleY = currTitle.addClass(IS_ACTIVE).position().top;
-		titleY += currTitle.height()*0.25; // Pauschal
-		titleWrapper.css('top', -titleY  + 'px');
+		titleY += currTitle.height() * 0.25; // Pauschal
+		titleWrapper.css('top', -titleY + 'px');
 
 	}
+
+	function handleSidebarClick(e) {
+
+		e.preventDefault();
+		var cLink = e.target;
+
+		sidenavLinks.each(function(i, obj) {
+
+			if (obj === cLink && !$(cLink).hasClass(IS_ACTIVE) && !pauseScroll) {
+
+				changeSlideByIndex(i, currSlideIndex < i);
+				pauseScroll = true;
+			}
+		});
+	}
+
 
 	function _handleScroll(e) {
 
@@ -129,7 +171,7 @@
 		}
 	}
 
-	function _handleSwipe(event, direction ) {
+	function _handleSwipe(event, direction) {
 
 		if (direction === 'down') {
 
@@ -150,7 +192,7 @@
 
 	}
 
-	function resizeImages () {
+	function resizeImages() {
 		var theWindow = $(window),
 			wRatio = theWindow.width() / theWindow.height(),
 			aspectRatio,
@@ -172,22 +214,25 @@
 
 		}
 	}
-		// body...
 
 
 	function _init() {
 
 		if (slides.length) {
 
-			currSlideIndex = 0;
+			currSlideIndex = currLink = 0;
 			currSlide = slides.eq(currSlideIndex).addClass(IS_ACTIVE);
 			currTitle = titles.eq(currSlideIndex).addClass(IS_ACTIVE);
+			sidenavLinks.eq(currLink).addClass(IS_ACTIVE);
 
 			$(window).load(function() {
 				$(window).resize(resizeImages).trigger('resize');
 			});
 
 		}
+
+
+		sidenavLinks.click(handleSidebarClick);
 
 		// Event Listeners
 		//TODO: debounce it

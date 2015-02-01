@@ -239,11 +239,12 @@ button.project-nav{
 			padding: 25px 0;
 			opacity: 0;
 			transition: opacity $page-transition-time*0.5 $page-transition-ease $page-transition-time*0.25;
-			
+			pointer-events: none;
 
 			&.is-active{
 				opacity: 1;
 				visibility: visible;
+				pointer-events: auto;
 			}
 		}
 	}
@@ -251,14 +252,10 @@ button.project-nav{
 
 
 
-
 //SIDEBAR-NAV
 
-$nav-point-size : 10; // {px}
-$nav-point-color : #f00; 
-$nav-point-border-color: rgba(255, 255, 255, 0.2); 
-$nav-thumb-size : 80; // {px}
-$nav-transition-time: 0.5s;
+$nav-point-size : 6px; 
+$nav-point-color : #fff; 
 
 @function to-px($number) {
     @return unquote($number  + "px");
@@ -267,76 +264,32 @@ $nav-transition-time: 0.5s;
 
 .sidebar-nav {
 	position: absolute;
-	float:right;
+	right: 30px;
 	top: 50%;
-	right: to-px($nav-thumb-size*0.5 + 10);
-	color: #333;
-	z-index: 2;
-	
-	// http://stackoverflow.com/questions/17298739/css-overflow-hidden-not-working-in-chrome-when-parent-has-border-radius-and-chil
-	-webkit-transform: translate3d(0, -50%, 0); 
-	-moz-transform: translate3d(0, -50%, 0);
-
-
-	.nav-thumb-container {
-		position: absolute;
-		overflow: hidden;
-		width: 10px;
-		height: 10px;
-		top:0;
-		left: 0;
-		border-radius: 50%;
-		transition: all $nav-transition-time;
-
-		&.is-hovering {
-			top: to-px(($nav-point-size - $nav-thumb-size)/2);
-			left:  to-px(($nav-point-size - $nav-thumb-size)/2);
-			width: to-px($nav-thumb-size);
-			height: to-px($nav-thumb-size);
-
-			img {
-				top: 0;
-				left:  0;
-			}
-		}
-
-		img {
-			position: absolute;
-			top: to-px(($nav-point-size - $nav-thumb-size)/2);
-			left:  to-px(($nav-point-size - $nav-thumb-size)/2);
-			transition: all $nav-transition-time;
-		}
-	}
-
+	-webkit-transform: translateY(-50%); 
+	-moz-transform: translateY(-50%); 
 
 	li {
-		position: relative;
-		margin: 20px 0;
+		padding: 5px 0;
 	}
 
 	a {
 		display: block;
-		position: relative;
-		width: to-px($nav-point-size);
-		height: to-px($nav-point-size);
-		border-radius: to-px($nav-point-size);
-		background-color: $nav-point-color;
-		z-index: 1;
-
+		width: $nav-point-size;
+		height: $nav-point-size;
+		border-radius: $nav-point-size;
+		border: 2px solid $nav-point-color;
+		
 		&.is-active {
-
+			background-color: $nav-point-color;
 		}
 
-		&:before{
-			// content: " ";
-			// position: absolute;
-			// z-index: -1;
-			// top: -4px;
-			// left: -4px;
-			// width: to-px($nav-point-size);
-			// height: to-px($nav-point-size);
-			// border-radius: 50%;
-			// border: 4px solid $nav-point-border-color;
+		&:hover{
+			background-color: $nav-point-color;
 		}
+
 	}
+
+
+
 }

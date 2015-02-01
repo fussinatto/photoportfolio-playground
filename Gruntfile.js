@@ -26,11 +26,20 @@ module.exports = function(grunt) {
         files: ['*.js']
       },
       livereload: {
-        files: ['styles/*.css', '{,*/}*.html', '/images/{,*/}*','{,*/}*.js'],
+        files: ['styles/*.css', '{,*/}*.html', '/images/{,*/}*', '{,*/}*.js'],
         options: {
           livereload: true
         },
       }
+    },
+
+    csscomb: {
+      options: {
+        // Task-specific options go here. 
+      },
+      your_target: {
+        // Target-specific file lists and/or options go here. 
+      },
     },
 
     connect: {
@@ -48,10 +57,15 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-csscomb');
 
   // register tasks
   grunt.registerTask('default', [
     'connect',
     'watch'
+  ]);
+
+   grunt.registerTask('csscomb', [
+    'csscomb'
   ]);
 };
