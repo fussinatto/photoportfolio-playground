@@ -175,8 +175,8 @@ header .logo img {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.95);
 }
-/* line 114, ../sass/index_ver5.scss */
-.main-nav ul {
+/* line 113, ../sass/index_ver5.scss */
+.main-nav .page-links {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -184,21 +184,43 @@ header .logo img {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-/* line 123, ../sass/index_ver5.scss */
-.main-nav li {
+/* line 121, ../sass/index_ver5.scss */
+.main-nav .page-links li {
   padding: 10px;
   font-size: 34px;
   font-family: "Montserrat", sans-serif;
+  text-align: center;
   color: #fff;
-  opacity: 0.5;
+  opacity: 0.6;
   transition: opacity 0.5s;
 }
-/* line 131, ../sass/index_ver5.scss */
-.main-nav li:hover {
+/* line 130, ../sass/index_ver5.scss */
+.main-nav .page-links li:hover {
   opacity: 1;
 }
 
-/* line 143, ../sass/index_ver5.scss */
+/* line 139, ../sass/index_ver5.scss */
+.social_icons {
+  position: absolute;
+  bottom: 30px;
+  left: 5%;
+}
+/* line 145, ../sass/index_ver5.scss */
+.social_icons li {
+  padding: 5px;
+  display: inline-block;
+}
+/* line 150, ../sass/index_ver5.scss */
+.social_icons a {
+  opacity: 0.5;
+  transition: opacity 0.5s;
+}
+/* line 154, ../sass/index_ver5.scss */
+.social_icons a:hover {
+  opacity: 1;
+}
+
+/* line 163, ../sass/index_ver5.scss */
 .main-page {
   position: absolute;
   top: 0px;
@@ -210,7 +232,7 @@ header .logo img {
   -moz-perspective: 1000px;
   perspective: 1000px;
 }
-/* line 155, ../sass/index_ver5.scss */
+/* line 175, ../sass/index_ver5.scss */
 .main-page .project-slide {
   visibility: hidden;
   position: absolute;
@@ -221,34 +243,34 @@ header .logo img {
   background: #fff;
   overflow: hidden;
 }
-/* line 165, ../sass/index_ver5.scss */
+/* line 185, ../sass/index_ver5.scss */
 .main-page .project-slide.is-active {
   visibility: visible;
   z-index: 2;
 }
-/* line 170, ../sass/index_ver5.scss */
+/* line 190, ../sass/index_ver5.scss */
 .main-page .project-slide.on-stage {
   visibility: visible;
 }
-/* line 173, ../sass/index_ver5.scss */
+/* line 193, ../sass/index_ver5.scss */
 .main-page .project-slide.on-stage img {
   transform: scale(1.1);
 }
-/* line 178, ../sass/index_ver5.scss */
+/* line 198, ../sass/index_ver5.scss */
 .main-page .project-slide img {
   top: 0;
   left: 0;
   transition: transform 15s ease-out;
 }
-/* line 184, ../sass/index_ver5.scss */
+/* line 204, ../sass/index_ver5.scss */
 .main-page .project-slide img[data-scaleaxis="bgwidth"] {
   width: 100%;
 }
-/* line 188, ../sass/index_ver5.scss */
+/* line 208, ../sass/index_ver5.scss */
 .main-page .project-slide img[data-scaleaxis="bgheight"] {
   height: 100%;
 }
-/* line 194, ../sass/index_ver5.scss */
+/* line 214, ../sass/index_ver5.scss */
 .main-page .project-slide .project-title {
   position: absolute;
   font-size: 48px;
@@ -258,13 +280,13 @@ header .logo img {
   left: 80px;
 }
 
-/* line 206, ../sass/index_ver5.scss */
+/* line 226, ../sass/index_ver5.scss */
 button.project-nav {
   position: relative;
   z-index: 10;
 }
 
-/* line 213, ../sass/index_ver5.scss */
+/* line 233, ../sass/index_ver5.scss */
 .title-section {
   position: absolute;
   width: 50%;
@@ -274,14 +296,14 @@ button.project-nav {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-/* line 226, ../sass/index_ver5.scss */
+/* line 246, ../sass/index_ver5.scss */
 .title-section .title-anim-wrapper {
   position: absolute;
   top: 0;
   text-align: center;
   transition: top 1s cubic-bezier(0.7, 0, 0.3, 1);
 }
-/* line 232, ../sass/index_ver5.scss */
+/* line 252, ../sass/index_ver5.scss */
 .title-section .title-anim-wrapper li {
   font-size: 42px;
   font-family: "Montserrat", sans-serif;
@@ -293,14 +315,14 @@ button.project-nav {
   transition: opacity 0.5s cubic-bezier(0.7, 0, 0.3, 1) 0.25s;
   pointer-events: none;
 }
-/* line 244, ../sass/index_ver5.scss */
+/* line 264, ../sass/index_ver5.scss */
 .title-section .title-anim-wrapper li.is-active {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
 }
 
-/* line 265, ../sass/index_ver5.scss */
+/* line 285, ../sass/index_ver5.scss */
 .sidebar-nav {
   position: absolute;
   right: 30px;
@@ -308,11 +330,11 @@ button.project-nav {
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
 }
-/* line 272, ../sass/index_ver5.scss */
+/* line 292, ../sass/index_ver5.scss */
 .sidebar-nav li {
   padding: 5px 0;
 }
-/* line 276, ../sass/index_ver5.scss */
+/* line 296, ../sass/index_ver5.scss */
 .sidebar-nav a {
   display: block;
   width: 6px;
@@ -320,11 +342,11 @@ button.project-nav {
   border-radius: 6px;
   border: 2px solid #fff;
 }
-/* line 283, ../sass/index_ver5.scss */
+/* line 303, ../sass/index_ver5.scss */
 .sidebar-nav a.is-active {
   background-color: #fff;
 }
-/* line 287, ../sass/index_ver5.scss */
+/* line 307, ../sass/index_ver5.scss */
 .sidebar-nav a:hover {
   background-color: #fff;
 }
