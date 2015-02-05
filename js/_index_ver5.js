@@ -310,3 +310,31 @@
 	var navA = $('.sidebar-nav a').hover(onNavHover);
 
 })();
+
+
+
+//Bio Image
+(function() {
+
+	var bioImg = $('.bio-img');
+	var wRatio = bioImg.width() / bioImg.height();
+
+	var $img = bioImg.eq(0).children();
+
+	$img.load(function () {
+		var aspectRatio = $img.width() / $img.height();
+
+		console.log($img.width());
+
+		if (wRatio < aspectRatio) {
+			$img.attr('data-scaleaxis', 'bgheight');
+
+		} else {
+
+			$img.attr('data-scaleaxis', 'bgwidth');
+		}
+	})
+
+
+
+})();
