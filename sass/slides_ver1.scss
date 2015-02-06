@@ -1,0 +1,100 @@
+@import "compass/reset";
+
+$page-transition-time: 1s;
+$page-transition-ease: cubic-bezier(.75,.02,.33,.99);
+
+html,body{
+	width: 100%;
+	height: 100%;
+}
+
+body{
+	background-color: #ccc;
+}
+
+.wrapper{
+	height: auto;
+	min-height: 100%;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+
+.main-page{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	background: transparent;
+
+	.slides{
+		height: 100%;
+		width: 100%;
+   		-webkit-perspective: 1000px;
+    	-moz-perspective: 1000px;
+    	perspective: 1000px;
+	}
+	
+	.project-slide {
+		display: none; // To be set as block later with .is-active class
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background: #fff;
+		overflow: hidden;
+		
+		&.is-active{
+			display: block;
+			z-index: 2;
+		}
+		
+		&.in-between{
+			display: block;
+			z-index: 1
+		}
+
+		img {
+			width: 100%;
+			display: inline;
+			vertical-align: middle;
+		}
+
+
+		.project-title{
+			position: absolute;
+			font-size: 48px;
+			font-weight: bold;
+			letter-spacing: 2px;
+			bottom: 15%;
+			left: 80px;
+		}
+		
+	}
+}
+
+button.slide-nav{
+	position: relative;
+	z-index: 10;
+}
+
+
+// 2st version
+.title-nav{
+	position: absolute;
+	bottom: 50px;
+	left: 50px;
+	color: #fff;
+
+	li{
+		font-size: 24px;
+		transition: font-size $page-transition-time $page-transition-ease;
+
+		&.is-active {
+			font-size: 48px;
+		}
+	}
+}
+

@@ -1,0 +1,424 @@
+/* line 5, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, C:/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 8, ../sass/index_ver5 BKP.scss */
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 13, ../sass/index_ver5 BKP.scss */
+body {
+  background-color: #ccc;
+  color: #fff;
+}
+
+/* line 18, ../sass/index_ver5 BKP.scss */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* line 23, ../sass/index_ver5 BKP.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* line 32, ../sass/index_ver5 BKP.scss */
+p {
+  font-family: "Neuton", serif;
+}
+
+/* line 36, ../sass/index_ver5 BKP.scss */
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border: 5px solid #fff;
+  box-sizing: border-box;
+}
+
+/* line 45, ../sass/index_ver5 BKP.scss */
+header {
+  position: relative;
+  padding: 0 5%;
+  z-index: 10;
+}
+/* line 50, ../sass/index_ver5 BKP.scss */
+header .logo {
+  display: inline-block;
+  width: 140px;
+  height: 80px;
+  overflow: hidden;
+  background-color: #fff;
+  line-height: 80px;
+  text-align: center;
+}
+/* line 59, ../sass/index_ver5 BKP.scss */
+header .logo img {
+  vertical-align: middle;
+}
+
+/* line 65, ../sass/index_ver5 BKP.scss */
+.main-nav-toggle {
+  position: relative;
+  float: right;
+  padding: 5px;
+  margin: 15px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+/* line 74, ../sass/index_ver5 BKP.scss */
+.main-nav-toggle:active, .main-nav-toggle:focus {
+  outline: 0;
+}
+/* line 80, ../sass/index_ver5 BKP.scss */
+.main-nav-toggle .btn-bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 5px 0;
+  border-radius: 1px;
+  opacity: 1;
+  background-color: #fff;
+  transform-origin: center right;
+  transition: all 0.5s;
+}
+/* line 94, ../sass/index_ver5 BKP.scss */
+.is-menu-active .main-nav-toggle .btn-bar:first-child {
+  transform: rotate(-45deg);
+}
+/* line 97, ../sass/index_ver5 BKP.scss */
+.is-menu-active .main-nav-toggle .btn-bar:nth-child(2) {
+  opacity: 0;
+}
+/* line 100, ../sass/index_ver5 BKP.scss */
+.is-menu-active .main-nav-toggle .btn-bar:nth-child(3) {
+  transform: rotate(45deg);
+}
+
+/* line 107, ../sass/index_ver5 BKP.scss */
+.main-nav {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+}
+/* line 117, ../sass/index_ver5 BKP.scss */
+.is-menu-active .main-nav {
+  opacity: 1;
+  z-index: 1;
+}
+/* line 123, ../sass/index_ver5 BKP.scss */
+.main-nav:before {
+  content: ' ';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+}
+/* line 131, ../sass/index_ver5 BKP.scss */
+.main-nav .page-links {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  color: #333;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+/* line 139, ../sass/index_ver5 BKP.scss */
+.main-nav .page-links li {
+  padding: 10px;
+  font-size: 34px;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  color: #fff;
+  opacity: 0.6;
+  transition: opacity 0.5s;
+}
+/* line 148, ../sass/index_ver5 BKP.scss */
+.main-nav .page-links li:hover {
+  opacity: 1;
+}
+
+/* line 155, ../sass/index_ver5 BKP.scss */
+.social_icons {
+  position: absolute;
+  bottom: 30px;
+  left: 5%;
+}
+/* line 161, ../sass/index_ver5 BKP.scss */
+.social_icons li {
+  padding: 5px;
+  display: inline-block;
+}
+/* line 166, ../sass/index_ver5 BKP.scss */
+.social_icons a {
+  opacity: 0.5;
+  transition: opacity 0.5s;
+}
+/* line 170, ../sass/index_ver5 BKP.scss */
+.social_icons a:hover {
+  opacity: 1;
+}
+
+/* line 179, ../sass/index_ver5 BKP.scss */
+.main-page {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background: transparent;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  perspective: 1000px;
+}
+/* line 191, ../sass/index_ver5 BKP.scss */
+.main-page .project-slide {
+  visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #fff;
+  overflow: hidden;
+}
+/* line 201, ../sass/index_ver5 BKP.scss */
+.main-page .project-slide.is-active {
+  visibility: visible;
+  z-index: 2;
+}
+/* line 206, ../sass/index_ver5 BKP.scss */
+.main-page .project-slide.on-stage {
+  visibility: visible;
+}
+/* line 209, ../sass/index_ver5 BKP.scss */
+.main-page .project-slide.on-stage img {
+  transform: scale(1.1);
+}
+/* line 214, ../sass/index_ver5 BKP.scss */
+.main-page .project-slide img {
+  top: 0;
+  left: 0;
+  transition: transform 15s ease-out;
+}
+/* line 220, ../sass/index_ver5 BKP.scss */
+.main-page .project-slide img[data-scaleaxis="bgwidth"] {
+  width: 100%;
+}
+/* line 224, ../sass/index_ver5 BKP.scss */
+.main-page .project-slide img[data-scaleaxis="bgheight"] {
+  height: 100%;
+}
+/* line 230, ../sass/index_ver5 BKP.scss */
+.main-page .project-slide .project-title {
+  position: absolute;
+  font-size: 48px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  bottom: 15%;
+  left: 80px;
+}
+
+/* line 241, ../sass/index_ver5 BKP.scss */
+button.project-nav {
+  position: relative;
+  z-index: 10;
+}
+
+/* line 248, ../sass/index_ver5 BKP.scss */
+.title-section {
+  position: absolute;
+  width: 50%;
+  height: 125px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+/* line 261, ../sass/index_ver5 BKP.scss */
+.title-section .title-anim-wrapper {
+  position: absolute;
+  top: 0;
+  text-align: center;
+  transition: top 1s cubic-bezier(0.7, 0, 0.3, 1);
+}
+/* line 267, ../sass/index_ver5 BKP.scss */
+.title-section .title-anim-wrapper li {
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  padding: 25px 0;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.7, 0, 0.3, 1) 0.25s;
+  pointer-events: none;
+}
+/* line 279, ../sass/index_ver5 BKP.scss */
+.title-section .title-anim-wrapper li.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+/* line 284, ../sass/index_ver5 BKP.scss */
+.title-section .title-anim-wrapper li.is-active .view_more {
+  opacity: 1;
+}
+/* line 291, ../sass/index_ver5 BKP.scss */
+.title-section .proj_title {
+  padding-top: 20px;
+  font-size: 42px;
+  line-height: 50px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+/* line 300, ../sass/index_ver5 BKP.scss */
+.title-section .category-span {
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+/* line 305, ../sass/index_ver5 BKP.scss */
+.title-section .category-span:after {
+  content: ' ';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  bottom: 0;
+  left: 0;
+}
+/* line 317, ../sass/index_ver5 BKP.scss */
+.title-section .view_more {
+  font-size: 14px;
+  display: inline-block;
+  position: relative;
+  padding: 10px 30px;
+  margin-top: 25px;
+  background-color: rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  text-indent: 0;
+  transition: opacity 1s ease 1s, background-color 0.3s;
+  opacity: 0;
+}
+/* line 330, ../sass/index_ver5 BKP.scss */
+.title-section .view_more:after {
+  content: "\2192";
+  position: absolute;
+  width: 20px;
+  right: -20px;
+  top: 7px;
+  font-size: 125%;
+  color: #fff;
+  transition: right 0.3s;
+}
+/* line 341, ../sass/index_ver5 BKP.scss */
+.title-section .view_more:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+/* line 343, ../sass/index_ver5 BKP.scss */
+.title-section .view_more:hover:after {
+  right: 5px;
+}
+
+/* line 362, ../sass/index_ver5 BKP.scss */
+.sidebar-nav {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+}
+/* line 369, ../sass/index_ver5 BKP.scss */
+.sidebar-nav li {
+  padding: 5px 0;
+}
+/* line 373, ../sass/index_ver5 BKP.scss */
+.sidebar-nav a {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+  border: 2px solid #fff;
+}
+/* line 380, ../sass/index_ver5 BKP.scss */
+.sidebar-nav a.is-active {
+  background-color: #fff;
+}
+/* line 384, ../sass/index_ver5 BKP.scss */
+.sidebar-nav a:hover {
+  background-color: #fff;
+}

@@ -1,0 +1,6 @@
+/* line 1, ../../sass/extend/button.scss */
+.plainbutton {
+  outline: 0;
+  background: none;
+  border: 0;
+}

@@ -1,0 +1,392 @@
+@import "compass/reset";
+
+$page-transition-time: 1s;
+$page-transition-ease: cubic-bezier(.7,0,.3,1);
+$menu-transition-time: 0.5s;
+$main-color: #fff;
+
+html,body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background-color: #ccc;
+	color: $main-color;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+	font-family: "Montserrat", sans-serif;
+}
+
+p {
+	font-family: "Neuton", serif;
+}
+
+.wrapper {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	border: 5px solid $main-color;
+	box-sizing: border-box;
+}
+
+header {
+	position: relative;
+	padding: 0 5%;
+	z-index: 10;
+
+	.logo {
+		display: inline-block;
+		width: 140px;
+		height: 80px;
+		overflow: hidden;
+		background-color: $main-color;
+		line-height:80px; // Has to be same as height
+		text-align:center;
+
+		img {
+			 vertical-align: middle;
+		}
+	}
+}
+
+.main-nav-toggle{
+	position: relative;
+	float: right;
+	padding: 5px;
+	margin: 15px;
+	background-color: transparent;
+	border: 1px solid transparent;
+	cursor: pointer;
+
+	&:active, 
+ 	&:focus {
+	    outline:0;
+	}
+
+
+	.btn-bar{
+		display: block;
+		width: 20px;
+		height: 2px;
+		margin: 5px 0;
+		border-radius: 1px;
+		opacity: 1;
+		background-color: $main-color;
+		transform-origin: center right;
+		transition: all $menu-transition-time;
+	}
+	
+	.is-menu-active & {
+
+		.btn-bar:first-child {
+			transform: rotate(-45deg);
+		}
+		.btn-bar:nth-child(2) {
+			opacity: 0;
+		}
+		.btn-bar:nth-child(3) {
+			transform: rotate(45deg);
+		}
+	}
+
+}
+
+.main-nav{
+	opacity:0;
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	// z-index: -1;
+	transition: all $menu-transition-time;
+
+	.is-menu-active &{ // to be set on  body
+		opacity:1;
+		z-index: 1;
+	}
+    
+
+	&:before {
+		content: ' ';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0,0,0,0.95);
+	}
+
+    .page-links {
+    	position: fixed;
+    	top: 50%;
+   		left: 50%;
+    	color: #333;
+    	-webkit-transform: translate(-50%, -50%);
+    	transform: translate(-50%, -50%);
+		
+		li {
+			padding: 10px;
+			font-size:34px;
+			font-family: "Montserrat", sans-serif;
+			text-align: center;
+			color: $main-color;
+			opacity: 0.6;
+			transition: opacity $menu-transition-time;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+    }
+}
+
+.social_icons {
+
+	position: absolute;
+	bottom: 30px;
+	left: 5%;
+
+	li {
+		padding: 5px;
+		display: inline-block;
+	}
+
+	a {
+		opacity: 0.5;
+		transition: opacity $menu-transition-time;
+
+		&:hover {
+			opacity:1;
+		}
+
+	}
+}
+
+
+
+.main-page {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	background: transparent;
+	-webkit-perspective: 1000px;
+	-moz-perspective: 1000px;
+	perspective: 1000px;
+
+	
+	.project-slide {
+		visibility: hidden;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background: $main-color;
+		overflow: hidden;
+		
+		&.is-active {
+		    visibility: visible;
+		    z-index: 2;
+		}
+
+		&.on-stage {
+			visibility: visible;
+
+			img {
+				transform: scale(1.1);
+			}
+		}
+
+		img {
+
+			top: 0; 
+			left: 0; 
+			transition: transform 15s ease-out;
+
+			&[data-scaleaxis="bgwidth"]{
+				 width: 100%;
+			}
+
+			&[data-scaleaxis="bgheight"]{
+				 height: 100%;
+			}
+
+		}
+
+		.project-title{
+			position: absolute;
+			font-size: 48px;
+			font-weight: bold;
+			letter-spacing: 2px;
+			bottom: 15%;
+			left: 80px;
+		}
+	}
+}
+
+button.project-nav{
+	position: relative;
+	z-index: 10;
+}
+
+
+// TITLE
+.title-section{
+	
+	position: absolute;
+	width: 50%;
+	height: 125px; 
+	// overflow: hidden;
+
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+
+
+	.title-anim-wrapper{
+		position: absolute;
+		top: 0;
+		text-align: center;
+		transition: top $page-transition-time $page-transition-ease;
+
+		li {
+			font-size: 20px;
+			
+			font-family: "Montserrat", sans-serif;
+			
+			
+			color: $main-color;
+			padding: 25px 0;
+			opacity: 0;
+			transition: opacity $page-transition-time*0.5 $page-transition-ease $page-transition-time*0.25;
+			pointer-events: none;
+
+			&.is-active{
+				opacity: 1;
+				visibility: visible;
+				pointer-events: auto;
+
+				.view_more {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.proj_title {
+		padding-top:20px;
+		font-size: 42px;
+		line-height: 50px;
+		letter-spacing: 4px;
+		text-transform: uppercase;
+		
+	}
+
+	.category-span {
+		position: relative;
+		padding-bottom: 10px;
+		margin-bottom: 20px;
+
+		&:after{
+			content: ' ';
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background-color: $main-color;
+			bottom: 0;
+			left: 0;
+		}
+
+	}
+
+	.view_more {
+		font-size: 14px;
+		display: inline-block;
+		position: relative;
+		padding: 10px 30px;
+		margin-top:25px;
+		// box-shadow: 0 0 0 2px $main-color; // renders betterthan border with animation in backgrounf
+		background-color: rgba(0,0,0,0.2);
+		overflow: hidden;
+		text-indent: 0;
+		transition: opacity $page-transition-time ease $page-transition-time, background-color 0.3s;	
+		opacity: 0;// to be animated
+
+		&:after {
+			content: "\2192";
+			position: absolute;
+			width: 20px;
+			right: -20px;
+			top: 7px;
+			font-size: 125%;
+			color: #fff;
+			transition: right 0.3s;
+
+		}
+		&:hover {
+			background-color: rgba(0,0,0,0.4);
+			&:after{
+				right: 5px;
+			}
+		}
+    }
+}
+
+
+
+//SIDEBAR-NAV
+
+$nav-point-size : 6px; 
+$nav-point-color : $main-color; 
+
+@function to-px($number) {
+    @return unquote($number  + "px");
+}
+
+
+.sidebar-nav {
+	position: absolute;
+	right: 30px;
+	top: 50%;
+	-webkit-transform: translateY(-50%); 
+	-moz-transform: translateY(-50%); 
+
+	li {
+		padding: 5px 0;
+	}
+
+	a {
+		display: block;
+		width: $nav-point-size;
+		height: $nav-point-size;
+		border-radius: $nav-point-size;
+		border: 2px solid $nav-point-color;
+		
+		&.is-active {
+			background-color: $nav-point-color;
+		}
+
+		&:hover{
+			background-color: $nav-point-color;
+		}
+
+	}
+
+
+
+}
