@@ -376,12 +376,13 @@ button.project-nav{
 			right: -20px;
 			top: 7px;
 			font-size: 125%;
-			color: #fff;
+			color: #000;
 			transition: right 0.3s;
 
 		}
 		&:hover {
-			background-color: rgba(0,0,0,0.4);
+			background-color: rgba(255,255,255,0.8);
+			color: rgba(0,0,0,1);
 			&:after{
 				right: 5px;
 			}

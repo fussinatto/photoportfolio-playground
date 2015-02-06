@@ -421,19 +421,20 @@ button.project-nav {
   right: -20px;
   top: 7px;
   font-size: 125%;
-  color: #fff;
+  color: #000;
   transition: right 0.3s;
 }
 /* line 383, ../sass/index_ver5.scss */
 .title-section .view_more:hover {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
 }
-/* line 385, ../sass/index_ver5.scss */
+/* line 386, ../sass/index_ver5.scss */
 .title-section .view_more:hover:after {
   right: 5px;
 }
 
-/* line 404, ../sass/index_ver5.scss */
+/* line 405, ../sass/index_ver5.scss */
 .sidebar-nav {
   position: absolute;
   right: 30px;
@@ -441,11 +442,11 @@ button.project-nav {
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
 }
-/* line 411, ../sass/index_ver5.scss */
+/* line 412, ../sass/index_ver5.scss */
 .sidebar-nav li {
   padding: 5px 0;
 }
-/* line 415, ../sass/index_ver5.scss */
+/* line 416, ../sass/index_ver5.scss */
 .sidebar-nav a {
   display: block;
   width: 6px;
@@ -453,16 +454,16 @@ button.project-nav {
   border-radius: 6px;
   border: 2px solid #fff;
 }
-/* line 422, ../sass/index_ver5.scss */
+/* line 423, ../sass/index_ver5.scss */
 .sidebar-nav a.is-active {
   background-color: #fff;
 }
-/* line 426, ../sass/index_ver5.scss */
+/* line 427, ../sass/index_ver5.scss */
 .sidebar-nav a:hover {
   background-color: #fff;
 }
 
-/* line 439, ../sass/index_ver5.scss */
+/* line 440, ../sass/index_ver5.scss */
 button.slide-nav {
   position: relative;
   z-index: 10;

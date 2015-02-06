@@ -66,25 +66,9 @@
 					return;
 
 				}
-
-				// (currSlideIndex > 0) ?  : currSlideIndex = slides.length - 1;
 			}
 
 			changeSlideByIndex(currSlideIndex, directionNext);
-			// CALL SLIDES CHANGE 
-			// prevSlide = currSlide;
-			// currSlide = slides.eq(currSlideIndex);
-			// _animateSlides(directionNext);
-
-			// // CALL TITLE CHANGE
-			// prevTitle = currTitle;
-			// currTitle = titles.eq(currSlideIndex);
-			// _animateTitles();
-
-			// // CALL LINK CHANGE
-			// sidenavLinks.eq(currLink).removeClass(IS_ACTIVE);
-			// currLink = currSlideIndex;
-			// sidenavLinks.eq(currLink).addClass(IS_ACTIVE);
 
 		}
 	}
@@ -205,11 +189,23 @@
 			aspectRatio,
 			$img;
 
+
+		var setHeightFlag = function () {
+				if (wRatio < aspectRatio) {
+
+					$img.attr('data-scaleaxis', 'bgheight');
+
+				} else {
+
+					$img.attr('data-scaleaxis', 'bgwidth');
+				}
+			}
+
 		for (var i = 0, j = slides.length; i < j; i++) {
 
 			$img = slides.eq(i).children();
 
-			aspectRatio = $img.width() / $img.height();
+			/*aspectRatio = $img.width() / $img.height();
 
 			if (wRatio < aspectRatio) {
 				$img.attr('data-scaleaxis', 'bgheight');
@@ -217,8 +213,17 @@
 			} else {
 
 				$img.attr('data-scaleaxis', 'bgwidth');
-			}
+			}*/
 
+			if ($img[0].complete) {
+				aspectRatio = $img.width() / $img.height();
+				setHeightFlag();
+			} else {
+				$img.load(function() {
+					aspectRatio = $img.width() / $img.height();
+					setHeightFlag();
+				});
+			}
 		}
 	}
 
@@ -318,23 +323,29 @@
 
 	var bioImg = $('.bio-img');
 	var wRatio = bioImg.width() / bioImg.height();
-
 	var $img = bioImg.eq(0).children();
+	var aspectRatio;
 
-	$img.load(function () {
-		var aspectRatio = $img.width() / $img.height();
+	if ($img[0].complete) {
+		aspectRatio = $img.width() / $img.height();
+		setHeightFlag();
+	} else {
+		$img.load(function() {
+			aspectRatio = $img.width() / $img.height();
+			setHeightFlag();
+		});
+	}
 
-		console.log($img.width());
-
+	function setHeightFlag () {
 		if (wRatio < aspectRatio) {
+
 			$img.attr('data-scaleaxis', 'bgheight');
 
 		} else {
 
 			$img.attr('data-scaleaxis', 'bgwidth');
 		}
-	})
-
-
+	}
 
 })();
+
