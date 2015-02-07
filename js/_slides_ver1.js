@@ -8,13 +8,16 @@
 	var slides = $('.project-slide'),
 		slideIndxWrapper = $('.slide-indx-wrapper'),
 		slideIndx = $('li', slideIndxWrapper),
-		navButtons = $('.slide-nav-buttons button');
+		navButtons = $('.slide-nav-buttons button'),
+		slideInfo = $('.slide-info-wrapper'),
+		slideInfoBtn = $('.slide-info-btn');
 
 	// Constants
 	var IS_ACTIVE = 'is-active',
 		ON_STAGE = 'on-stage',
 		ANIM_EASE = [0.75, 0, 0.25, 1],
 		ANIM_TIME = 1000,
+		IS_HIDDEN = 'is-hidden',
 		KEYS = {
 			'up': 38,
 			'down': 40,
@@ -30,6 +33,7 @@
 		prevTitle,
 		currLink,
 		scrollDirectionRight,
+		infoTextOn,
 		vw = $(window).width(),
 		pauseScroll = false;
 
@@ -86,6 +90,17 @@
 		currTitle = slideIndx.eq(currSlideIndex);
 		_animateTitles();
 
+
+		if (currSlideIndex === 0) {
+			navButtons.eq(0).addClass(IS_HIDDEN);
+		}
+		if (currSlideIndex === slides.length - 1) {
+			navButtons.eq(1).addClass(IS_HIDDEN);
+		}
+		if (currSlideIndex !== 0 && currSlideIndex !== slides.length - 1){
+			navButtons.removeClass(IS_HIDDEN);
+		}
+
 	}
 
 	// $element.velocity(propertyMap [, duration] [, easing] [, complete])
@@ -136,7 +151,7 @@
 
 	function _handleScroll(e) {
 
-		if (!pauseScroll) {
+		if (!pauseScroll && !infoTextOn) {
 
 			//Animate slides - play next (directionNext = true) if scrolling is downwards
 			_changeSlides(e.originalEvent.wheelDelta < 0);
@@ -161,6 +176,16 @@
 			_changeSlides(scrollDirectionRight);
 		}
 
+	}
+
+	function handleInfoClick () {
+		if(infoTextOn){
+			slideInfo.removeClass(IS_ACTIVE);
+		} else {
+			slideInfo.addClass(IS_ACTIVE);
+		}
+		infoTextOn = !infoTextOn;
+		
 	}
 
 	function resizeImages() {
@@ -219,6 +244,13 @@
 		$(window).swipe({
 			swipe: _handleSwipe
 		});
+
+		if(slideInfoBtn.length){
+
+			slideInfoBtn.bind('click',function () {
+				handleInfoClick();
+			});
+		}
 
 
 	}

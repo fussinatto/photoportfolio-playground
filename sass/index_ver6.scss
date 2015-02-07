@@ -301,7 +301,13 @@ header {
 		top: 50%;
 		transform: translateY(-50%);
 		cursor: pointer;
-		transition: background-color .3s ease;
+		transition: background-color .3s ease, opacity .3s;
+
+
+		&.is-hidden{
+			opacity: 0;
+			visibility: hidden;
+		}
 
 
 		&:after{
@@ -313,13 +319,14 @@ header {
 			left: -4px;
 			border-radius: 50%;
 			border: 2px solid $main-color;
-			opacity: 1;
+			opacity: 0;
 			transform: scale(1);
 			transition: transform .3s ease, opacity .3s ease;
 		}
 
 		&:hover{
-			background-color: rgba(255,255,255,0.1);
+			background-color: rgba(255,255,255,0.3);
+
 			&:after{
 				opacity: 1;
 				transform: scale(1.2);
@@ -376,13 +383,16 @@ header {
 		text-align: center;
 	}
 }
-
-.slide-title-wrapper {
+.slide-info-wrapper {
 	position: absolute;
 	z-index: 1;
-	bottom: 20px;
+	padding: 20px;
+	bottom: 0;
 	left: 20px;
+	max-width: 320px;
 	font-family: "Montserrat", sans-serif;
+	z-index: 5;
+	transition: background-color 0.5s;
 
 	h4 {
 		font-size: 14px;
@@ -392,9 +402,19 @@ header {
 		position: relative;
 		font-size: 20px;
 		padding: 5px 0;
+		
+		&:after{
+			content: "";
+			position: absolute;
+			width: 20px;
+			height: 2px;
+			background-color: $main-color;
+			bottom:-5px;
+			left: 0;
+		}
 	}
 
-	.slide-info {
+	.slide-info-btn {
 		@extend .plainbutton;
 		width: 22px;
 		height: 22px;
@@ -413,13 +433,25 @@ header {
 		}
 	}
 
-	&:after{
-		content: "";
-		position: absolute;
-		width: 20px;
-		height: 2px;
-		background-color: $main-color;
-		bottom:-5px;
+	.slide-info-text{
+		max-height: 0px;
+		margin-top: 15px;
+		overflow-x: hidden;
+		overflow-y: auto;
+		padding: 1px; // to hide scroll in chrome if not necessary
+		transition: max-height 0.5s;
+
+		p{
+			padding-right: 10px; 
+		}
+	}
+
+	&.is-active {
+		background-color: rgba(0,0,0,0.9);
+
+		.slide-info-text{
+			max-height: 160px;
+		}
 	}
 
 	
@@ -650,13 +682,15 @@ button.slide-nav{
 }
  
 ::-webkit-scrollbar-track {
-	background: rgba(155,155,155,0.4); 
+	background: rgba(165,165,165,0.4); 
     // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
     border-radius: 6px;
 }
  
 ::-webkit-scrollbar-thumb {
     border-radius: 6px;
-    background: rgba(0,0,0,0.2); 
+    background: rgba(0,0,0,0.4); 
     // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }
+
+
